@@ -321,12 +321,7 @@ Really basic Hoodie stuff. You can also call `hoodie.store.findAll('message').do
 As a plugin author, you could wrap your own methods around these, so app authors can stay within your plugin API's scope even when listening for native Hoodie store events or using the Hoodie core API. For example, in the plugin's frontend component, have:
 
     function findAll(){
-      var defer = hoodie.defer();
-      hoodie.store.findAll('message')
-      .done(defer.resolve)
-      .fail(defer.reject)
-
-      return defer.promise();
+      return hoodie.store.findAll('message');
     }
 
     hoodie.directMessages = {
